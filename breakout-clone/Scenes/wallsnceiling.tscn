@@ -1,0 +1,53 @@
+[gd_scene load_steps=5 format=3 uid="uid://cwnix3aoi3ebj"]
+
+[ext_resource type="Script" uid="uid://q0qfb184gqg1" path="res://Scripts/wallsnceiling.gd" id="1_hfg52"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kjpe2"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2bj67"]
+size = Vector2(57, 800)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kjpe2"]
+size = Vector2(1034, 51)
+
+[node name="wallsnceiling" type="Node2D"]
+script = ExtResource("1_hfg52")
+
+[node name="walls" type="StaticBody2D" parent="."]
+collision_layer = 2
+collision_mask = 5
+
+[node name="Left wall" type="Panel" parent="walls"]
+offset_left = -16.0
+offset_top = -17.0
+offset_right = 32.0
+offset_bottom = 779.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_kjpe2")
+
+[node name="Right wall" type="Panel" parent="walls"]
+offset_left = 993.0
+offset_top = -16.0
+offset_right = 1041.0
+offset_bottom = 780.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_kjpe2")
+
+[node name="left collision" type="CollisionShape2D" parent="walls"]
+position = Vector2(3.5, 380)
+shape = SubResource("RectangleShape2D_2bj67")
+
+[node name="right collision" type="CollisionShape2D" parent="walls"]
+position = Vector2(1022, 381)
+shape = SubResource("RectangleShape2D_2bj67")
+
+[node name="ceiling" type="StaticBody2D" parent="."]
+collision_layer = 2
+
+[node name="floor collision" type="CollisionShape2D" parent="ceiling"]
+position = Vector2(507, 15.5)
+shape = SubResource("RectangleShape2D_kjpe2")
+
+[node name="floor" type="Panel" parent="ceiling"]
+offset_left = 31.0
+offset_right = 994.0
+offset_bottom = 42.0
