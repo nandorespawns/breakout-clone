@@ -1,6 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://cneqmfc12janu"]
+[gd_scene load_steps=5 format=3 uid="uid://cneqmfc12janu"]
 
 [ext_resource type="Script" uid="uid://bdhnrd7hsub17" path="res://Scripts/ball.gd" id="1_d60mj"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_d60mj"]
+friction = 0.0
+bounce = 1.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_25osk"]
 bg_color = Color(1, 1, 1, 1)
@@ -12,7 +16,13 @@ corner_radius_bottom_left = 20
 [sub_resource type="CircleShape2D" id="CircleShape2D_25osk"]
 radius = 20.0998
 
-[node name="ball" type="Node2D"]
+[node name="ball" type="RigidBody2D"]
+collision_layer = 4
+collision_mask = 3
+physics_material_override = SubResource("PhysicsMaterial_d60mj")
+gravity_scale = 0.0
+linear_damp_mode = 1
+angular_damp_mode = 1
 script = ExtResource("1_d60mj")
 
 [node name="Panel" type="Panel" parent="."]
@@ -29,9 +39,5 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_25osk")
 
-[node name="RigidBody2D" type="RigidBody2D" parent="."]
-collision_layer = 4
-collision_mask = 3
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_25osk")

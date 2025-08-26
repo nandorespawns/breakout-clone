@@ -10,6 +10,7 @@ size = Vector2(167, 44)
 
 [node name="player" type="CharacterBody2D"]
 collision_mask = 6
+motion_mode = 1
 script = ExtResource("1_v0iea")
 
 [node name="paddle" type="Panel" parent="."]
