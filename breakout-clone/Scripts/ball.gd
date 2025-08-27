@@ -1,10 +1,16 @@
-extends RigidBody2D
+extends CharacterBody2D
 
-const SPEED :int  = 300
+var speed = 300
+var is_active = true
+var direction: Vector2 = Vector2.DOWN
 
 func _ready() -> void:
-	
-	linear_velocity = Vector2(SPEED, -SPEED)
+	pass
 
 func _physics_process(delta: float) -> void:
-	print(linear_velocity)
+	if is_active:
+		var collision = move_and_collide(direction * speed * delta)
+		if collision:
+			direction = direction.bounce(collision.get_normal()).normalized()
+	
+	

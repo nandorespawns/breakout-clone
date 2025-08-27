@@ -15,10 +15,14 @@ run/main_scene="uid://cl2632lsy7g7r"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Global="*res://Scripts/global.gd"
+
 [display]
 
-window/size/viewport_width=1024
-window/size/viewport_height=768
+window/size/viewport_width=506
+window/size/viewport_height=607
 
 [input]
 
@@ -43,5 +47,6 @@ move_right={
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
