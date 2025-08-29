@@ -1,15 +1,21 @@
 extends CharacterBody2D
 
-var yposition: int = 570
-const SPEED :int = 500
+var y_position: int = 570
+const SPEED :int = 300
+var direction
+
 
 func _ready() -> void:
-	Global.player = self
+	pass
 
 func _physics_process(_delta: float) -> void:
-	var direction = Input.get_axis("move_left","move_right")
+	direction = Input.get_axis("move_left","move_right")
 	velocity.x = direction * SPEED 
 	move_and_slide()
 	
-	position.y = yposition
+	position.y = y_position
+	#print(direction)
 	
+
+func apply_direction():
+	print("1")

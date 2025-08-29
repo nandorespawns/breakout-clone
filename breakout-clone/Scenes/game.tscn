@@ -1,10 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://cl2632lsy7g7r"]
+[gd_scene load_steps=5 format=3 uid="uid://cl2632lsy7g7r"]
 
+[ext_resource type="PackedScene" uid="uid://c6adym4u5v6bt" path="res://Scenes/brick_manager.tscn" id="1_3dryh"]
 [ext_resource type="PackedScene" uid="uid://c2vjxd4uhehki" path="res://Scenes/player.tscn" id="1_ebmjs"]
 [ext_resource type="PackedScene" uid="uid://cwnix3aoi3ebj" path="res://Scenes/wallsnceiling.tscn" id="1_qxrlw"]
 [ext_resource type="PackedScene" uid="uid://cneqmfc12janu" path="res://Scenes/ball.tscn" id="3_wrm1d"]
 
 [node name="Game" type="Node2D"]
+
+[node name="brick_manager" parent="." instance=ExtResource("1_3dryh")]
 
 [node name="wallsnceiling" parent="." instance=ExtResource("1_qxrlw")]
 

@@ -15,6 +15,7 @@ radius = 11.0002
 height = 97.0016
 
 [node name="player" type="CharacterBody2D"]
+scale = Vector2(1.4257, 1.4257)
 collision_mask = 6
 motion_mode = 1
 script = ExtResource("1_v0iea")

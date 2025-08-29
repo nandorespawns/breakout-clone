@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=3 uid="uid://c34jekjxj7sp6"]
+
+[ext_resource type="Script" uid="uid://d1tn6gyd4xxsm" path="res://brick.gd" id="1_lvh1d"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_pn5wc"]
+friction = 0.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pn5wc"]
+resource_local_to_scene = true
+bg_color = Color(0.901961, 1, 0.0588235, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pn5wc"]
+size = Vector2(54, 11)
+
+[node name="Brick" type="StaticBody2D"]
+collision_layer = 2
+collision_mask = 4
+physics_material_override = SubResource("PhysicsMaterial_pn5wc")
+script = ExtResource("1_lvh1d")
+
+[node name="Panel" type="Panel" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -28.0
+offset_top = -5.0
+offset_right = 26.0
+offset_bottom = 6.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1, 0.990718)
+theme_override_styles/panel = SubResource("StyleBoxFlat_pn5wc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 0.5)
+shape = SubResource("RectangleShape2D_pn5wc")

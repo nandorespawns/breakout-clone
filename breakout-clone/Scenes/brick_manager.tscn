@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://c6adym4u5v6bt"]
+
+[ext_resource type="Script" uid="uid://d0h5hdf356xes" path="res://Scripts/brick_manager.gd" id="1_ioduj"]
+
+[node name="brick_manager" type="Node"]
+script = ExtResource("1_ioduj")
