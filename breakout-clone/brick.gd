@@ -4,4 +4,5 @@ extends StaticBody2D
 
 
 func hit():
+	Global.score += 1
 	queue_free()

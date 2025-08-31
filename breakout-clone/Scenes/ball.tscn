@@ -12,6 +12,7 @@ corner_radius_bottom_left = 20
 [sub_resource type="CircleShape2D" id="CircleShape2D_25osk"]
 
 [node name="ball" type="CharacterBody2D"]
+process_mode = 1
 scale = Vector2(0.284523, 0.284523)
 collision_layer = 4
 collision_mask = 3

@@ -1,0 +1,69 @@
+[gd_scene format=3 uid="uid://cs8satmlc3pea"]
+
+[node name="game_over" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="game_over_txt" type="Label" parent="."]
+layout_mode = 0
+offset_left = 62.0
+offset_top = 92.0
+offset_right = 442.0
+offset_bottom = 188.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 9
+theme_override_font_sizes/font_size = 70
+text = "Game Over"
+horizontal_alignment = 1
+
+[node name="score_txt" type="Label" parent="."]
+layout_mode = 0
+offset_left = 50.0
+offset_top = 214.0
+offset_right = 230.0
+offset_bottom = 291.0
+theme_override_font_sizes/font_size = 54
+text = "Score: "
+
+[node name="highscore_txt" type="Label" parent="."]
+layout_mode = 0
+offset_left = 49.0
+offset_top = 301.0
+offset_right = 349.0
+offset_bottom = 378.0
+theme_override_font_sizes/font_size = 54
+text = "Highscore: "
+
+[node name="play_again" type="Label" parent="."]
+layout_mode = 0
+offset_left = -7.0
+offset_top = 408.0
+offset_right = 512.0
+offset_bottom = 485.0
+theme_override_font_sizes/font_size = 54
+text = "Press R to try again"
+horizontal_alignment = 1
+
+[node name="score_num" type="Label" parent="."]
+layout_mode = 0
+offset_left = 378.0
+offset_top = 214.0
+offset_right = 418.0
+offset_bottom = 288.0
+theme_override_font_sizes/font_size = 54
+text = "0"
+horizontal_alignment = 1
+
+[node name="highscore_num" type="Label" parent="."]
+layout_mode = 0
+offset_left = 378.0
+offset_top = 301.0
+offset_right = 418.0
+offset_bottom = 375.0
+theme_override_font_sizes/font_size = 54
+text = "0"
+horizontal_alignment = 1

@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://bv2jag1kalqel"]
+
+[node name="UI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="score_txt" type="Label" parent="."]
+layout_mode = 0
+offset_left = 19.0
+offset_right = 92.0
+offset_bottom = 35.0
+theme_override_font_sizes/font_size = 25
+text = "Score:"
+
+[node name="score_num" type="Label" parent="."]
+layout_mode = 0
+offset_left = 97.0
+offset_right = 137.0
+offset_bottom = 35.0
+theme_override_font_sizes/font_size = 25
+text = "0"
+
+[node name="highscore_txt" type="Label" parent="."]
+layout_mode = 0
+offset_left = 182.0
+offset_right = 309.0
+offset_bottom = 35.0
+theme_override_font_sizes/font_size = 25
+text = "Highscore:"
+
+[node name="highscore_num" type="Label" parent="."]
+layout_mode = 0
+offset_left = 314.0
+offset_right = 354.0
+offset_bottom = 35.0
+theme_override_font_sizes/font_size = 25
+text = "0"
+
+[node name="lives_txt" type="Label" parent="."]
+layout_mode = 0
+offset_left = 397.0
+offset_right = 464.0
+offset_bottom = 35.0
+theme_override_font_sizes/font_size = 25
+text = "Lives:"
+
+[node name="lives_num" type="Label" parent="."]
+layout_mode = 0
+offset_left = 468.0
+offset_right = 508.0
+offset_bottom = 35.0
+theme_override_font_sizes/font_size = 25
+text = "0"

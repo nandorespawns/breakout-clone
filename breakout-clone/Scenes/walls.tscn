@@ -1,6 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://cwnix3aoi3ebj"]
+[gd_scene load_steps=6 format=3 uid="uid://cwnix3aoi3ebj"]
 
-[ext_resource type="Script" uid="uid://q0qfb184gqg1" path="res://Scripts/wallsnceiling.gd" id="1_hfg52"]
+[ext_resource type="Script" uid="uid://q0qfb184gqg1" path="res://Scripts/walls.gd" id="1_hfg52"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_hfg52"]
 friction = 0.0
@@ -11,19 +11,14 @@ bg_color = Color(0, 0, 0, 1)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2bj67"]
 size = Vector2(57, 800)
 
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_p8ewa"]
-friction = 0.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hfg52"]
+size = Vector2(514, 20)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hfg52"]
-bg_color = Color(0, 0, 0, 1)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_kjpe2"]
-size = Vector2(1034, 51)
-
-[node name="wallsnceiling" type="Node2D"]
+[node name="walls" type="Node2D"]
 script = ExtResource("1_hfg52")
 
 [node name="walls" type="StaticBody2D" parent="."]
+scale = Vector2(0.995077, 1)
 collision_layer = 2
 collision_mask = 5
 physics_material_override = SubResource("PhysicsMaterial_hfg52")
@@ -49,17 +44,13 @@ shape = SubResource("RectangleShape2D_2bj67")
 position = Vector2(534.5, 371)
 shape = SubResource("RectangleShape2D_2bj67")
 
-[node name="ceiling" type="StaticBody2D" parent="."]
+[node name="failzone" type="Area2D" parent="."]
 collision_layer = 2
-collision_mask = 5
-physics_material_override = SubResource("PhysicsMaterial_p8ewa")
+collision_mask = 4
 
-[node name="floor" type="Panel" parent="ceiling"]
-offset_left = -27.0
-offset_top = -42.0
-offset_right = 936.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_hfg52")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="failzone"]
+position = Vector2(252, 611)
+shape = SubResource("RectangleShape2D_hfg52")
+debug_color = Color(0.990448, 0, 0.278214, 0.42)
 
-[node name="floor collision" type="CollisionShape2D" parent="ceiling"]
-position = Vector2(449, -25.5)
-shape = SubResource("RectangleShape2D_kjpe2")
+[connection signal="body_entered" from="failzone" to="." method="_on_failzone_body_entered"]

@@ -15,7 +15,8 @@ radius = 11.0002
 height = 97.0016
 
 [node name="player" type="CharacterBody2D"]
-scale = Vector2(1.4257, 1.4257)
+process_mode = 1
+scale = Vector2(0.608082, 0.608082)
 collision_mask = 6
 motion_mode = 1
 script = ExtResource("1_v0iea")
@@ -34,7 +35,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_f60y1")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="paddle_shape" type="CollisionShape2D" parent="."]
 position = Vector2(0.5, 0)
 rotation = 1.57041
 shape = SubResource("CapsuleShape2D_v0iea")

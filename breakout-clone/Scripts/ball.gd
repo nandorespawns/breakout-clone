@@ -1,8 +1,9 @@
 extends CharacterBody2D
 
 var speed = 300
-var is_active = true
-var direction: Vector2 = Vector2.DOWN
+var is_active = false
+var direction: Vector2 = Vector2.UP
+var gainspeed: int = 10
 @onready var direction_change: Timer = $directionchange
 
 func _ready() -> void:
@@ -19,6 +20,9 @@ func _physics_process(delta: float) -> void:
 				direction = direction.bounce(collision.get_normal()).normalized()
 				if collision.get_collider().has_method("hit"):
 					collision.get_collider().hit()
+					speed += gainspeed
+				elif collision.get_collider().name == "ceiling":
+					collision.get_collider().reduce_player()
 			#testing getting direction from player
 			if collision.get_collider().is_class("CharacterBody2D"):
 				var player_direction = collision.get_collider().direction
@@ -26,28 +30,28 @@ func _physics_process(delta: float) -> void:
 				if player_direction == 1 and direction_change.is_stopped():
 					if direction_angle >= 0 and direction_angle <= 90:
 						direction = Vector2.from_angle(deg_to_rad(-45))
-						print(rad_to_deg(direction.angle()))
+						#print(rad_to_deg(direction.angle()))
 					else:
 						direction_change.start()
 						direction = -direction.rotated(change_angle)
-						print(rad_to_deg(direction.angle()))
+						#print(rad_to_deg(direction.angle()))
 				elif player_direction == -1 and direction_change.is_stopped():
 					if direction_angle >= 90:
 						direction = Vector2.from_angle(deg_to_rad(-135))
-						print(rad_to_deg(direction.angle()))
+						#print(rad_to_deg(direction.angle()))
 					else:
 						direction_change.start()
 						direction = -direction.rotated(-change_angle)
-						print(rad_to_deg(direction.angle()))
+						#print(rad_to_deg(direction.angle()))
 				else:
 					direction = direction.bounce(collision.get_normal()).normalized()
-					print(rad_to_deg(direction.angle()))
+					#print(rad_to_deg(direction.angle()))
 			direction_angle = rad_to_deg(direction.angle())
 			if direction_angle >= 165 or direction_angle <= -165:
 				direction = Vector2.from_angle((deg_to_rad(-150)))
-				print(rad_to_deg(direction.angle()))
+				#print(rad_to_deg(direction.angle()))
 			elif direction_angle <= 15 and direction_angle >= -15:
 				direction = Vector2.from_angle(deg_to_rad(-30))
-				print(rad_to_deg(direction.angle()))
-			
+				#print(rad_to_deg(direction.angle()))
+		
 	
