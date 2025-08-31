@@ -1,6 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://cneqmfc12janu"]
+[gd_scene load_steps=6 format=3 uid="uid://cneqmfc12janu"]
 
 [ext_resource type="Script" uid="uid://bdhnrd7hsub17" path="res://Scripts/ball.gd" id="1_d60mj"]
+[ext_resource type="AudioStream" uid="uid://bf6fn47a67jdr" path="res://SFX/hit.wav" id="2_ij5cq"]
+[ext_resource type="AudioStream" uid="uid://cb76gfmn48ald" path="res://SFX/hit_brick.wav" id="3_376qj"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_25osk"]
 bg_color = Color(1, 1, 1, 1)
@@ -39,3 +41,11 @@ shape = SubResource("CircleShape2D_25osk")
 [node name="directionchange" type="Timer" parent="."]
 wait_time = 1.5
 one_shot = true
+
+[node name="Hit" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_ij5cq")
+volume_db = -16.838
+
+[node name="hit_brick" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_376qj")
+volume_db = -9.905

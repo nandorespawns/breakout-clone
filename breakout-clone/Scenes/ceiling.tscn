@@ -9,7 +9,7 @@ friction = 0.0
 bg_color = Color(0, 0, 0, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_27ou7"]
-size = Vector2(1034, 51)
+size = Vector2(586, 51)
 
 [node name="ceiling" type="StaticBody2D"]
 collision_layer = 2
@@ -18,12 +18,11 @@ physics_material_override = SubResource("PhysicsMaterial_hjgi8")
 script = ExtResource("1_bycnq")
 
 [node name="ceiling" type="Panel" parent="."]
-offset_left = -27.0
-offset_top = -42.0
-offset_right = 936.0
+offset_left = -5.0
+offset_top = -40.0
+offset_right = 514.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_bycnq")
-metadata/_edit_use_anchors_ = true
 
 [node name="ceiling collision" type="CollisionShape2D" parent="."]
-position = Vector2(449, -25.5)
+position = Vector2(225, -25.5)
 shape = SubResource("RectangleShape2D_27ou7")

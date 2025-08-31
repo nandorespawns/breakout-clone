@@ -5,9 +5,12 @@ var is_active = false
 var direction: Vector2 = Vector2.UP
 var gainspeed: int = 10
 @onready var direction_change: Timer = $directionchange
+@onready var hit: AudioStreamPlayer = $Hit
+@onready var hit_brick: AudioStreamPlayer = $hit_brick
+
 
 func _ready() -> void:
-	pass
+	Global.ball = self
 
 func _physics_process(delta: float) -> void:
 	if is_active:
@@ -16,16 +19,26 @@ func _physics_process(delta: float) -> void:
 		
 		if collision:
 			var direction_angle = rad_to_deg(direction.angle())
-			if collision.get_collider().is_class("StaticBody2D"):
+			if collision.get_collider().name == "walls":
 				direction = direction.bounce(collision.get_normal()).normalized()
-				if collision.get_collider().has_method("hit"):
-					collision.get_collider().hit()
-					speed += gainspeed
-				elif collision.get_collider().name == "ceiling":
-					collision.get_collider().reduce_player()
+				hit.pitch_scale = (randf_range(0.7, 0.9))
+				hit.play()
+			if collision.get_collider().has_method("hit"):
+				direction = direction.bounce(collision.get_normal()).normalized()
+				hit_brick.pitch_scale = randf_range(0.85, 1)
+				hit_brick.play()
+				collision.get_collider().hit()
+				speed += gainspeed
+			if collision.get_collider().name == "ceiling":
+				direction = direction.bounce(collision.get_normal()).normalized()
+				hit.pitch_scale = (randf_range(0.7, 0.9))
+				hit.play()
+				collision.get_collider().reduce_player()
 			#testing getting direction from player
 			if collision.get_collider().is_class("CharacterBody2D"):
 				var player_direction = collision.get_collider().direction
+				hit.pitch_scale = randf_range(0.8,1.2)
+				hit.play()
 				
 				if player_direction == 1 and direction_change.is_stopped():
 					if direction_angle >= 0 and direction_angle <= 90:
@@ -54,4 +67,5 @@ func _physics_process(delta: float) -> void:
 				direction = Vector2.from_angle(deg_to_rad(-30))
 				#print(rad_to_deg(direction.angle()))
 		
+	
 	

@@ -12,6 +12,7 @@ var ball_spawn_y = 550
 
 
 const GAME_OVER = preload("res://Scenes/game_over.tscn")
+var game_over = GAME_OVER.instantiate()
 
 const UI = preload("res://Scenes/ui.tscn")
 var ui = UI.instantiate()
@@ -25,6 +26,8 @@ func _ready() -> void:
 	
 	add_child(ui)
 	
+	add_child(game_over)
+	game_over.visible = false
 
 func _process(delta: float) -> void:
 	
@@ -46,10 +49,11 @@ func shoot_ball():
 		ball.is_active = true
 
 func end_game():
-	if Global.lives == 0:
+	if Global.lives <= 0:
+		game_over.visible = true
 		get_tree().paused = true
-		var game_over = GAME_OVER.instantiate()
-		add_child(game_over)
+		
+		
 		game_over.get_child(4).text = str(Global.score)
 		game_over.get_child(5).text = str(Global.highscore)
 		
@@ -65,3 +69,4 @@ func end_game():
 			
 	else:
 		get_tree().paused = false
+		game_over.visible = false

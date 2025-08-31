@@ -24,7 +24,6 @@ Global="*res://Scripts/global.gd"
 window/size/viewport_width=506
 window/size/viewport_height=607
 window/stretch/mode="viewport"
-window/stretch/aspect="keep_height"
 
 [input]
 
@@ -62,3 +61,4 @@ game_reset={
 textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+textures/vram_compression/import_etc2_astc=true

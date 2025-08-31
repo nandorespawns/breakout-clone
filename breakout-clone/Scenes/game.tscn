@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://cl2632lsy7g7r"]
+[gd_scene load_steps=7 format=3 uid="uid://cl2632lsy7g7r"]
 
 [ext_resource type="PackedScene" uid="uid://c6adym4u5v6bt" path="res://Scenes/brick_manager.tscn" id="1_3dryh"]
 [ext_resource type="PackedScene" uid="uid://cwnix3aoi3ebj" path="res://Scenes/walls.tscn" id="1_qxrlw"]
@@ -8,13 +8,16 @@
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3dryh"]
 bg_color = Color(0, 0, 0, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wowpa"]
+bg_color = Color(1, 1, 1, 1)
+
 [node name="Game" type="Node2D"]
 
 [node name="background" type="Panel" parent="."]
-offset_left = -117.0
-offset_top = -60.0
-offset_right = 646.0
-offset_bottom = 777.0
+offset_left = -57.0
+offset_top = -50.0
+offset_right = 514.0
+offset_bottom = 776.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_3dryh")
 
 [node name="brick_manager" parent="." instance=ExtResource("1_3dryh")]
@@ -24,3 +27,16 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_3dryh")
 [node name="walls" parent="." instance=ExtResource("1_qxrlw")]
 
 [node name="ceiling" parent="." instance=ExtResource("4_3dryh")]
+position = Vector2(10, 0)
+
+[node name="left border" type="Panel" parent="."]
+offset_left = -10.0
+offset_right = 1.0
+offset_bottom = 607.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_wowpa")
+
+[node name="right border" type="Panel" parent="."]
+offset_left = 505.0
+offset_right = 516.0
+offset_bottom = 607.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_wowpa")
